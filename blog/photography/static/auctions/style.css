@@ -1,0 +1,22 @@
+.nav :hover {
+    padding-bottom: -15px;
+    border-bottom-style: solid;
+    border-bottom-width: 1.3px;
+    width: fit-content;
+    color: #0192C6;
+}
+
+.nav :active {
+    padding-bottom: -15px;
+    border-bottom-style: solid;
+    border-bottom-width: 1.3px;
+    width: fit-content;
+    color: #0192C6;
+}
+.nav .active {
+    padding-bottom: -15px;
+    border-bottom-style: solid;
+    border-bottom-width: 1.3px;
+    width: fit-content;
+    color: #0192C6;
+}

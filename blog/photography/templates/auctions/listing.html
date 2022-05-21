@@ -1,0 +1,57 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <script>          
+        window.onscroll = () => {
+
+            // Check if we're at the bottom
+            if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+
+                // Change color to green
+                document.querySelector('body').style.background = '#0192C6';
+            } else {
+
+                // Change color to white
+                document.querySelector('body').style.background = 'white';
+            }
+
+        };
+    </script>
+<hr>
+<ul class="nav">
+    <li class="nav-item">
+        <a class="nav-link disabled" href="#">CATEGORIES</a>
+    </li>
+    {% for category in categories %}
+    <li class="nav-item">
+        <a style="color:#0192C6; font-weight: bold; " class="nav-link" href="{% url 'activeListings'%}?category={{category.id}}">{{ category.category|upper }} </a>
+    </li>
+  {% endfor %}
+</ul>
+<hr>
+<div class="container">        
+    <div class="row">
+        {% for listing in listings %}
+            <div style="border:none; " class="card border-light col col-lg-7 col-md-2 col-sm-2 col-12">              
+                <a class="card-link">
+                <img stlye="height: 500px; width: 100px;" src="{{ listing.mainPicture.picture.url|default:"https://www.inbounder.com.br/wp-content/themes/inbounder/images/no-image/No-Image-Found-400x264.png" }}"
+                    class="card-img-top" alt="{{ listing.mainPicture.alt_text|default:"No image found." }}"></img>
+                </a>
+                <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item card-title"><h5> {{ listing.title }}</h5></li>
+                </ul>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+    <footer style="background-color:white ;height: 50px; postion:relative; clear:both; box-shadow: 0 50vh 0 50vh #000;">
+        <hr><p style="color:black; text-align:center;">ALL CONTENT COPYRIGHT © GOODMORNINGphotos 2022</p>
+     </footer>
+     
+    {% endblock %}
+
+
+
+

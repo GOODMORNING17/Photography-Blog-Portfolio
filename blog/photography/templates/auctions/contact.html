@@ -1,0 +1,34 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+<hr>
+    <h2 style="font-size: 60px; font-family: lulo clean; font-weight: bold; position: relative; top: 100px; left: 80px;">Contact me</h2><br>
+    <p style="font-size: 17px; font-family: lulo clean; font-weight: bold; position: relative; top: 120px; left: 80px;">DO FILL UP THE FORM FOR ANY BUSINESS ENQUIRIES</p> 
+    <p style="font-size: 17px; font-family: lulo clean; font-weight: bold; position: relative; top: 120px; left: 80px;">AND COLLABORATIONS</p>
+
+    {% if message %}
+        <div>{{ message }}</div>
+    {% endif %}
+
+    <form style="action=; float: right; position: relative; top: -120px; left: -100px"{% url 'contact' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_Name">Name*:</label>
+            <input id="id_Name" style="width: 400px background-color: grey;" class="form-control" autofocus type="text" name="Name" >
+        </div><br>
+        <div class="form-group">
+            <label for="id_email">Email*:</label>
+            <input id="id_email" style="width: 400px background-color: grey;" class="form-control" type="email" name="email" >
+        </div><br>
+        <div class="form-group">
+            <label for="id_Details">Message:</label>
+            <textarea id="id_Details" style="width: 400px background-color: light-grey;" class="form-control" cols="40" rows="5" type="Details" name="Details" ></textarea>
+        </div>
+        <input style="background-color:#0192C6;" class="btn btn-primary" type="submit" value="Send">
+    </form>
+    <footer style="background-color:white;height: 50px; clear:both;">
+        <hr><p style="color:black; text-align:center;">ALL CONTENT COPYRIGHT © GOODMORNINGphotos 2022</p>
+     </footer>
+     
+
+{% endblock %}
